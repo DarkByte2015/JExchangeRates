@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public void btnGetCurrency_Click(View v)
     {
         Intent intent = new Intent(this, RateActivity.class);
-        startActivity(intent);
         Date date = getDateFromDatePicker(datePicker);
         intent.putExtra("date", date.getTime());
+        startActivity(intent);
     }
 }
