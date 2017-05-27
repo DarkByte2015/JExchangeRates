@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.example.ilya.jexchangerates"
+        applicationId "com.panov.ilya.jexchangerates"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
@@ -17,7 +17,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -25,13 +24,34 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+
+    // работа с сетью
+
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
+
+    // работа с xml
+
     compile ('com.squareup.retrofit:converter-simplexml:1.9.0') {
         exclude group: 'xpp3', module: 'xpp3'
         exclude group: 'stax', module: 'stax-api'
         exclude group: 'stax', module: 'stax'
     }
-    //compile 'org.simpleframework:simple-xml:2.7.1'
+
+    // работа с датой
+
+    compile 'net.danlew:android.joda:2.9.9'
+
+    // работа с файлами (для тестов)
+
+    compile group: 'commons-io', name: 'commons-io', version: '2.0.1'
+
+    // butterknife!!!
+
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+
     testCompile 'junit:junit:4.12'
+    testCompile 'net.danlew:android.joda:2.9.9'
+    testCompile "org.mockito:mockito-core:1.+"
 }
